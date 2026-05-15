@@ -31,7 +31,7 @@ jobs:
           docker run --rm \ 
             -v "$PWD:/repo" \ 
             trufflesecurity/trufflehog:latest \ 
-            git file://repo \ 
+            git file:///repo \ 
             --result=verified,unknown \ 
             --json > trufflehog-report.json || true
 
