@@ -42,8 +42,8 @@ jobs:
       - name: Upload Scan Report
         uses: action/upload-artifact@v4
         with:
-      - name: trufflehog-report
-        path: trufflehog-report.json
+          name: trufflehog-report
+          path: trufflehog-report.json
       - name: Fial Pipeline If secrets found
         run: |
          if [ -s trufflehog-report.json ]; then
