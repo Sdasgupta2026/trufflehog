@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Truffle log scan
         run: | 
-            docker run --rm \ 
+            docker run \ 
             -v "$PWD:/repo" \ 
             trufflesecurity/trufflehog:latest \ 
             git file:///repo \ 
