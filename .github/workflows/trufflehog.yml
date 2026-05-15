@@ -19,12 +19,12 @@ permissions:
   contents: read
 
 steps:
-  -name: CheckoutRepository
-   uses: actions/checkout@v4
-   with:
-     fetch-depth: 0
-  -name: Pull trufflehog image
-   run: docker pull trufflesecurity/trufflehog:latest
+-name: Checkout Repository
+ uses: actions/checkout@v4
+ with:
+   fetch-depth: 0
+-name: Pull trufflehog image
+ run: docker pull trufflesecurity/trufflehog:latest
 
   -name: Run Truffle log scan
    run: | docker run --rm \ -v "$PWD:/repo" \ trufflesecurity/trufflehog:latest \ git file://repo \ --result=verified,unknown \ --json > trufflehog-report.json || true
