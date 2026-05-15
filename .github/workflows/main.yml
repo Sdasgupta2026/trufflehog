@@ -28,11 +28,11 @@ jobs:
 
       - name: Run Truffle log scan
         run: | 
-          docker run --rm \ 
+            docker run --rm \ 
             -v "$PWD:/repo" \ 
             trufflesecurity/trufflehog:latest \ 
             git file:///repo \ 
-            --result=verified,unknown \ 
+            --results=verified,unknown \ 
             --json > trufflehog-report.json || true
 
       - name: Display Report
