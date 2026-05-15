@@ -27,7 +27,13 @@ jobs:
         run: docker pull trufflesecurity/trufflehog:latest
 
       - name: Run Truffle log scan
-        run: | docker run --rm \ -v "$PWD:/repo" \ trufflesecurity/trufflehog:latest \ git file://repo \ --result=verified,unknown \ --json > trufflehog-report.json || true
+        run: | 
+          docker run --rm \ 
+            -v "$PWD:/repo" \ 
+            trufflesecurity/trufflehog:latest \ 
+            git file://repo \ 
+            --result=verified,unknown \ 
+            --json > trufflehog-report.json || true
 
       - name: Display Report
         run: | 
